@@ -21,40 +21,21 @@
       object-fit: cover;
       background-color: black;
     }
-    #play-button {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 24px;
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-    }
   </style>
 </head>
 <body>
-  <video id="video-player" src="sax_iphone.mp4" playsinline></video>
-  <button id="play-button">Tap to play</button>
+  <video id="silent-video" src="silent_video.mp4" autoplay muted playsinline></video>
+  <video id="video-player" src="sax_iphone.mp4" playsinline style="display: none;"></video>
   <script>
+    const silentVideo = document.getElementById("silent-video");
     const videoPlayer = document.getElementById("video-player");
-    const playButton = document.getElementById("play-button");
 
-    videoPlayer.addEventListener("canplaythrough", () => {
-      // Remove the following line if you still want the video to autoplay
-      // videoPlayer.play();
-    });
-
-    playButton.addEventListener("click", () => {
-      if (videoPlayer.paused) {
+    silentVideo.addEventListener("playing", () => {
+      setTimeout(() => {
+        silentVideo.style.display = "none";
+        videoPlayer.style.display = "block";
         videoPlayer.play();
-        playButton.style.display = "none";
-      } else {
-        videoPlayer.pause();
-        playButton.style.display = "block";
-      }
+      }, 100);
     });
 
     videoPlayer.addEventListener("ended", () => {
