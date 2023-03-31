@@ -30,12 +30,10 @@
     const silentVideo = document.getElementById("silent-video");
     const videoPlayer = document.getElementById("video-player");
 
-    silentVideo.addEventListener("timeupdate", () => {
-      if (silentVideo.currentTime >= 0.9) {
-        silentVideo.style.display = "none";
-        videoPlayer.style.display = "block";
-        videoPlayer.play();
-      }
+    silentVideo.addEventListener("ended", () => {
+      silentVideo.style.display = "none";
+      videoPlayer.style.display = "block";
+      videoPlayer.play();
     });
 
     videoPlayer.addEventListener("ended", () => {
