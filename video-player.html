@@ -1,41 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <title>Fullscreen Video Player</title>
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-    }
-    video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      background-color: black;
-    }
-  </style>
+	<title>Video Player</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		video {
+			display: block;
+			margin: auto;
+			max-width: 100%;
+			height: auto;
+		}
+	</style>
 </head>
 <body>
-  <video id="video-player" src="sax_iphone.mp4" autoplay playsinline></video>
-  <script>
-    const videoPlayer = document.getElementById("video-player");
-
-    videoPlayer.addEventListener("canplaythrough", () => {
-      videoPlayer.play();
-    });
-
-    videoPlayer.addEventListener("ended", () => {
-      videoPlayer.currentTime = 0;
-      videoPlayer.play();
-    });
-  </script>
+	<video controls autoplay>
+		<source src="sax_iphone.mp4" type="video/mp4">
+	</video>
 </body>
 </html>
