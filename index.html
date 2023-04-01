@@ -1,20 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Phone Image</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<style>
-		img {
-			display: block;
-			margin: auto;
-			max-width: 100%;
-			height: auto;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Hut CNN to Jack Sax</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: none;
+            overflow: hidden;
+        }
+        video {
+            width: 70%;
+            height: 70%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
 </head>
 <body>
-	<a href="video-player.html">
-		<img src="breaking-news.jpg" alt="Phone Image">
-	</a>
+    <img id="pizza-image" src="pizzahutcnn.png" alt="Pizza Hut CNN" style="width: 100%; cursor: pointer;">
+    <div id="video-container">
+        <video id="jacksax-video" src="jacksax.mp4" loop></video>
+    </div>
+
+    <script>
+        document.getElementById('pizza-image').addEventListener('click', function() {
+            document.getElementById('video-container').style.display = 'block';
+            document.getElementById('jacksax-video').play();
+        });
+
+        document.getElementById('jacksax-video').addEventListener('click', function() {
+            document.getElementById('video-container').style.display = 'none';
+            document.getElementById('jacksax-video').pause();
+        });
+    </script>
 </body>
 </html>

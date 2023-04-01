@@ -1,66 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <title>Fullscreen Video Player</title>
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-    }
-    video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      background-color: black;
-    }
-    #play-button {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 24px;
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-    }
-  </style>
+	<title>CNN</title>
 </head>
 <body>
-  <video id="video-player" src="sax_iphone.mp4" playsinline></video>
-  <button id="play-button">Tap to play</button>
-  <script>
-    const videoPlayer = document.getElementById("video-player");
-    const playButton = document.getElementById("play-button");
+	<div>
+		<img src="pizzahutcnn.jpg" alt="Example Image" onclick="playVideo()">
+	</div>
 
-    videoPlayer.addEventListener("canplaythrough", () => {
-      // Remove the following line if you still want the video to autoplay
-      // videoPlayer.play();
-    });
+	<video id="example-video" src="jacksax.mp4" autoplay controls style="display:none;"></video>
 
-    playButton.addEventListener("click", () => {
-      if (videoPlayer.paused) {
-        videoPlayer.play();
-        playButton.style.display = "none";
-      } else {
-        videoPlayer.pause();
-        playButton.style.display = "block";
-      }
-    });
-
-    videoPlayer.addEventListener("ended", () => {
-      videoPlayer.currentTime = 0;
-      videoPlayer.play();
-    });
-  </script>
+	<script>
+		function playVideo() {
+			var video = document.getElementById("example-video");
+			video.style.display = "block";
+			video.play();
+		}
+	</script>
 </body>
 </html>
